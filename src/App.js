@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import GiftBox from './GiftBox';
 import './App.css';
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex justify-center items-center h-screen">
+      {isOpen ? (
+        <div className="text-center">
+          <h1 className="text-2xl font-bold">Happy Eid ul Fitr To All</h1>
+        </div>
+      ) : (
+        <GiftBox onClick={handleOpen} />
+      )}
     </div>
   );
 }
